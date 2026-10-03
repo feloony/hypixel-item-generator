@@ -1,57 +1,49 @@
-# Hypixel SkyBlock Item Generator
+# ⚔️ SkyBlock Item Studio
 
-Create custom Hypixel SkyBlock-style item definitions and generate Java source from a simple browser interface.
+A fast, browser-only editor for designing **Hypixel SkyBlock-style custom items** with a live tooltip preview and multiple export formats.
 
-> **Unofficial community project.** This project is not affiliated with, sponsored by, or endorsed by Hypixel or Mojang.
+> **Unofficial community project.** Not affiliated with, sponsored by, or endorsed by Hypixel or Mojang.
 
-## ✨ Features
+## ✨ What you can do
 
-- Create custom item definitions
-- Configure names, rarity, category, lore, URLs, and item types
-- Add common SkyBlock-style statistics
-- Generate Java source code
-- Copy generated code with one click
-- Responsive interface
-- No account, backend, or database required
-- Runs entirely in the browser
+- 🎨 Build items with name, rarity, category, SkyBlock ID, and Minecraft material
+- 👀 See a **live in-game-style tooltip preview** while editing
+- 📊 Configure Strength, Crit Chance, Crit Damage, Intelligence, Health, Defense, Speed, Ferocity, Magic Find, and Attack Speed
+- 📖 Add multi-line lore and source/flavor text
+- ✨ Add enchantments and custom abilities with mana costs
+- 💾 Automatically save drafts to `localStorage`
+- 🎲 Generate a randomized starter item
+- 📦 Export as Java, JSON, or a Minecraft `/give` command
+- ⬇️ Download generated Java directly
+- 📋 Copy generated output or tooltip text
+- 📱 Responsive layout for desktop and mobile
+- 🔒 No account, backend, database, or server required
 
-## 📊 Supported Stats
-
-- Strength
-- Crit Chance
-- Crit Damage
-- Intelligence
-- Health
-- Defence
-- Ferocity
-- Speed
-- Magic Find
-
-## 🚀 Getting Started
+## 🚀 Run locally
 
 ```bash
 git clone https://github.com/feloony/hypixel-item-generator.git
 cd hypixel-item-generator
 ```
 
-No dependencies are required. Open `index.html` in a modern browser, or deploy the repository to any static hosting provider.
+Open `index.html` in a modern browser. There are no build steps or dependencies.
 
-## 🧩 Usage
+## 🧩 Workflow
 
-1. Enter an item name.
-2. Select its category and rarity.
-3. Add lore and optional metadata.
-4. Configure statistics.
-5. Generate the Java source.
-6. Review and copy the generated class.
+1. Enter the item identity.
+2. Choose rarity and category.
+3. Add lore, stats, enchantments, and an optional ability.
+4. Watch the tooltip update instantly.
+5. Generate Java, JSON, or a Minecraft command.
+6. Copy the result or download the Java output.
 
-## 🛠️ Tech
+## 🛠️ Stack
 
 - HTML5
 - CSS3
-- JavaScript
-- Tailwind CSS
+- Vanilla JavaScript
 - Google Fonts
+- Browser `localStorage` and Clipboard APIs
 
 ## 📁 Structure
 
@@ -64,21 +56,20 @@ hypixel-item-generator/
 └── README.md
 ```
 
+## 🌐 Deploy
+
+Because this is a static browser application, it works with GitHub Pages, Cloudflare Pages, Netlify, Vercel, or any static web host.
+
 ## 🤝 Contributing
 
-Bug fixes, UI improvements, additional item options, and generator enhancements are welcome.
-
-1. Fork the repository.
-2. Create a feature branch.
-3. Make and test your changes.
-4. Open a pull request with a clear description.
+Ideas, UI improvements, new export formats, item properties, and bug fixes are welcome. Keep the project dependency-free where practical.
 
 ## 📜 Disclaimer
 
-Hypixel SkyBlock, Hypixel, Minecraft, and related names/assets belong to their respective owners. This is an independent community project for experimentation and educational use.
+Hypixel SkyBlock, Hypixel, Minecraft, and related names/assets belong to their respective owners. This project is an independent community tool for experimentation and education.
 
 ## 📄 License
 
 MIT License. See [`LICENSE`](LICENSE).
 
-⭐ If this tool is useful, consider starring the repository.
+⭐ If this tool helps you, consider starring the repository.
