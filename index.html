@@ -1,331 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hypixel Skyblock Item Generator</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="script.js"></script>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Fira+Code:wght@400&display=swap");
-
-      body {
-        font-family: "Poppins", sans-serif;
-        background-color: #1a202c;
-        color: #e2e8f0;
-      }
-
-      .form-section {
-        max-width: 600px;
-        margin: 0 auto;
-        background-color: #f9f9f9;
-        padding: 20px;
-        border-radius: 12px;
-        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-      }
-
-      .gradient-text {
-        background: linear-gradient(90deg, #ff7e5f, #feb47b);
-        -webkit-background-clip: text;
-        color: transparent;
-      }
-
-      .custom-input {
-        width: 100%;
-        padding: 12px;
-        border-radius: 8px;
-        border: 1px solid #ddd;
-        font-size: 16px;
-        transition: border-color 0.3s ease;
-      }
-
-      .custom-input:focus {
-        border-color: #ff7e5f;
-        outline: none;
-        box-shadow: 0 0 0 3px rgba(255, 126, 95, 0.2);
-      }
-
-      .grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-      }
-
-      @media (max-width: 768px) {
-        .grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .gradient-text {
-        background: linear-gradient(45deg, #4fd1c5, #4299e1);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-
-      .custom-scrollbar::-webkit-scrollbar {
-        width: 6px;
-      }
-
-      .custom-scrollbar::-webkit-scrollbar-track {
-        background: #2d3748;
-      }
-
-      .custom-scrollbar::-webkit-scrollbar-thumb {
-        background-color: #718096;
-        border-radius: 10px;
-      }
-
-      h1 {
-        font-size: 2.5rem;
-        font-weight: 700;
-      }
-
-      textarea#output {
-        font-family: "Fira Code", monospace;
-      }
-
-      .form-section {
-        margin-bottom: 2rem;
-      }
-
-      .btn-primary {
-        background: linear-gradient(90deg, #4299e1, #4fd1c5);
-        transition: transform 0.2s ease-in-out;
-      }
-
-      .btn-primary:hover {
-        transform: translateY(-2px);
-        background: linear-gradient(90deg, #2b6cb0, #38b2ac);
-      }
-
-      .custom-input,
-      .custom-select {
-        transition: border-color 0.2s ease-in-out;
-      }
-
-      .custom-input:focus,
-      .custom-select:focus {
-        border-color: #4fd1c5;
-        box-shadow: 0 0 0 3px rgba(79, 209, 197, 0.5);
-      }
-
-      @media (max-width: 640px) {
-        h1 {
-          font-size: 1.75rem;
-        }
-
-        .form-section {
-          margin-bottom: 1rem;
-        }
-      }
-    </style>
-  </head>
-
-  <body class="min-h-screen flex items-center justify-center p-4">
-    <main
-      class="w-full max-w-lg bg-gray-800 rounded-lg shadow-2xl overflow-hidden"
-    >
-      <header class="bg-gray-900 p-6">
-        <h1 class="text-center gradient-text">
-          Hypixel Skyblock Item Generator
-        </h1>
-      </header>
-
-      <div class="p-6 space-y-6">
-        <form id="itemGeneratorForm" class="space-y-6">
-          <input
-            type="text"
-            id="displayName"
-            name="displayName"
-            placeholder="Item Name"
-            required
-            class="w-full p-3 rounded-lg border border-gray-600 focus:outline-none custom-input bg-gray-700 text-white placeholder-gray-400"
-          />
-
-          <div class="grid grid-cols-2 gap-4">
-            <select
-              id="category"
-              name="category"
-              required
-              class="custom-select w-full p-3 rounded-lg border border-gray-600 bg-gray-700 text-white"
-            >
-              <option value="">Select Category</option>
-              <option value="Accessory">Accessory</option>
-              <option value="Tool">Tool</option>
-              <option value="Weapon">Weapon</option>
-              <option value="Other">Other</option>
-            </select>
-
-            <select
-              id="rarity"
-              name="rarity"
-              required
-              class="custom-select w-full p-3 rounded-lg border border-gray-600 bg-gray-700 text-white"
-            >
-              <option value="">Select Rarity</option>
-              <option value="COMMON">Common</option>
-              <option value="UNCOMMON">Uncommon</option>
-              <option value="RARE">Rare</option>
-              <option value="EPIC">Epic</option>
-              <option value="LEGENDARY">Legendary</option>
-              <option value="MYTHIC">Mythic</option>
-              <option value="DIVINE">Divine</option>
-            </select>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create and preview Hypixel SkyBlock-style custom items, then export Java, JSON, or Minecraft commands.">
+  <title>SkyBlock Item Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar"><div class="brand"><div class="brand-mark">◆</div><div><strong>SkyBlock Item Studio</strong><span>Unofficial item designer</span></div></div><div class="top-actions"><button class="ghost-btn" id="randomBtn">🎲 Random</button><button class="ghost-btn" id="resetBtn">Reset</button></div></header>
+    <main class="workspace">
+      <section class="editor-panel">
+        <div class="panel-heading"><div><p class="eyebrow">ITEM BUILDER</p><h1>Design your item</h1></div><span class="autosave" id="saveState">● Saved locally</span></div>
+        <form id="itemForm" autocomplete="off">
+          <div class="section-card"><div class="section-title"><span>Identity</span><small>Basic item information</small></div>
+            <div class="field full"><label for="displayName">Display name</label><input id="displayName" placeholder="e.g. Hyperion" required></div>
+            <div class="two-col"><div class="field"><label for="category">Category</label><select id="category"><option>Weapon</option><option>Armor</option><option>Accessory</option><option>Tool</option><option>Other</option></select></div><div class="field"><label for="rarity">Rarity</label><select id="rarity"><option>COMMON</option><option>UNCOMMON</option><option>RARE</option><option selected>EPIC</option><option>LEGENDARY</option><option>MYTHIC</option><option>DIVINE</option><option>SUPREME</option><option>VERY_SPECIAL</option></select></div></div>
+            <div class="two-col"><div class="field"><label for="itemId">SkyBlock ID</label><input id="itemId" placeholder="MY_CUSTOM_ITEM"></div><div class="field"><label for="material">Minecraft material</label><input id="material" value="DIAMOND_SWORD" placeholder="DIAMOND_SWORD"></div></div>
           </div>
-
-          <textarea
-            id="lore"
-            name="lore"
-            placeholder="Item Lore"
-            class="w-full p-3 rounded-lg border border-gray-600 focus:outline-none custom-input bg-gray-700 text-white placeholder-gray-400"
-            rows="4"
-          ></textarea>
-
-          <input
-            type="url"
-            id="url"
-            name="url"
-            placeholder="Item URL"
-            class="w-full p-3 rounded-lg border border-gray-600 focus:outline-none custom-input bg-gray-700 text-white placeholder-gray-400"
-          />
-
-          <div id="otherFields" class="hidden space-y-4">
-            <select
-              id="type"
-              name="type"
-              class="custom-select w-full p-3 rounded-lg border border-gray-600 bg-gray-700 text-white"
-            >
-              <option value="">Select Generic Item Type</option>
-              <option value="WEAPON">Weapon</option>
-              <option value="ARMOR">Armor</option>
-              <option value="ACCESSORY">Accessory</option>
-              <option value="CONSUMABLE">Consumable</option>
-              <option value="MATERIAL">Material</option>
-              <option value="PET">Pet</option>
-              <option value="RUNE">Rune</option>
-              <option value="SPELL">Spell</option>
-              <option value="OTHER">Other</option>
-            </select>
+          <div class="section-card"><div class="section-title"><span>Lore & metadata</span><small>What players see</small></div>
+            <div class="field"><label for="lore">Lore <kbd>Enter</kbd> for a new line</label><textarea id="lore" rows="5" placeholder="A legendary weapon forged from pure power.\n\n§7Right-click to unleash its ability."></textarea></div>
+            <div class="two-col"><div class="field"><label for="source">Source / flavor text</label><input id="source" placeholder="Dropped by a custom boss"></div><div class="field"><label for="url">Reference URL</label><input id="url" type="url" placeholder="https://..."></div></div>
           </div>
-
-          <div
-            class="form-section space-y-4 p-6 bg-gray-900 shadow-md rounded-lg max-w-lg mx-auto"
-          >
-            <h3 class="font-bold text-lg text-teal-400">Item Stats</h3>
-            <div class="grid grid-cols-2 gap-4">
-              <input
-                type="number"
-                id="strength"
-                name="strength"
-                placeholder="Strength"
-                class="custom-input bg-gray-600 text-white placeholder-gray600 border-none rounded-md p-2"
-              />
-              <input
-                type="number"
-                id="critChance"
-                name="critChance"
-                placeholder="Crit Chance"
-                class="custom-input bg-gray-600 text-white placeholder-gray-400 border-none rounded-md p-2"
-              />
-              <input
-                type="number"
-                id="critDamage"
-                name="critDamage"
-                placeholder="Crit Damage"
-                class="custom-input bg-gray-600 text-white placeholder-gray-400 border-none rounded-md p-2"
-              />
-              <input
-                type="number"
-                id="intelligence"
-                name="intelligence"
-                placeholder="Intelligence"
-                class="custom-input bg-gray-600 text-white placeholder-gray-400 border-none rounded-md p-2"
-              />
-              <input
-                type="number"
-                id="health"
-                name="health"
-                placeholder="Health"
-                class="custom-input bg-gray-600 text-white placeholder-gray-400 border-none rounded-md p-2"
-              />
-              <input
-                type="number"
-                id="defence"
-                name="defence"
-                placeholder="Defence"
-                class="custom-input bg-gray-600 text-white placeholder-gray-400 border-none rounded-md p-2"
-              />
-              <input
-                type="number"
-                id="ferocity"
-                name="ferocity"
-                placeholder="Ferocity"
-                class="custom-input bg-gray-600 text-white placeholder-gray-400 border-none rounded-md p-2"
-              />
-              <input
-                type="number"
-                id="speed"
-                name="speed"
-                placeholder="Speed"
-                class="custom-input bg-gray-600 text-white placeholder-gray-400 border-none rounded-md p-2"
-              />
-              <input
-                type="number"
-                id="magicFind"
-                name="magicFind"
-                placeholder="Magic Find"
-                class="custom-input bg-gray-600 text-white placeholder-gray-400 border-none rounded-md p-2"
-              />
-            </div>
+          <div class="section-card"><div class="section-title"><span>Stats</span><small>Only non-zero stats are exported</small></div><div class="stats-grid">
+            <label>⚔ Strength<input type="number" id="strength" placeholder="0"></label><label>✦ Crit Chance<input type="number" id="critChance" placeholder="0"></label><label>✦ Crit Damage<input type="number" id="critDamage" placeholder="0"></label><label>✎ Intelligence<input type="number" id="intelligence" placeholder="0"></label><label>❤ Health<input type="number" id="health" placeholder="0"></label><label>🛡 Defense<input type="number" id="defence" placeholder="0"></label><label>⚡ Speed<input type="number" id="speed" placeholder="0"></label><label>♨ Ferocity<input type="number" id="ferocity" placeholder="0"></label><label>☘ Magic Find<input type="number" id="magicFind" placeholder="0"></label><label>☠ Attack Speed<input type="number" id="attackSpeed" placeholder="0"></label>
+          </div></div>
+          <div class="section-card"><div class="section-title"><span>Enchantments & ability</span><small>Optional advanced data</small></div>
+            <div class="two-col"><div class="field"><label for="enchantments">Enchantments</label><input id="enchantments" placeholder="sharpness:7, critical:6"></div><div class="field"><label for="abilityName">Ability name</label><input id="abilityName" placeholder="WITHER IMPACT"></div></div>
+            <div class="two-col"><div class="field"><label for="abilityDescription">Ability description</label><textarea id="abilityDescription" rows="3" placeholder="Teleport 10 blocks ahead and deal damage."></textarea></div><div class="field"><label for="abilityMana">Mana cost</label><input id="abilityMana" type="number" min="0" placeholder="100"></div></div>
           </div>
         </form>
-
-        <div class="space-y-4">
-          <button
-            type="button"
-            id="generateBtn"
-            class="w-full py-3 rounded-lg text-white text-sm font-semibold btn-primary transition-all duration-300 ease-in-out"
-          >
-            Generate Java Class
-          </button>
-
-          <button
-            type="button"
-            id="copyBtn"
-            class="w-full py-3 rounded-lg bg-green-600 hover:bg-green-700 text-white text-sm font-semibold transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-500"
-          >
-            Copy to Clipboard
-          </button>
-        </div>
-      </div>
-
-      <section class="mt-8 p-6 bg-gray-800 bg-opacity-50">
-        <h2 class="text-xl font-bold gradient-text mb-4">
-          Generated Java Code
-        </h2>
-        <textarea
-          id="output"
-          class="w-full p-4 border border-gray-700 rounded-lg bg-gray-900 text-gray-300 custom-scrollbar"
-          readonly
-          rows="10"
-        ></textarea>
       </section>
+      <aside class="preview-panel"><div class="preview-head"><div><p class="eyebrow">LIVE PREVIEW</p><h2>In-game tooltip</h2></div><span class="live-dot">LIVE</span></div>
+        <div class="tooltip-wrap"><div id="tooltip" class="minecraft-tooltip"></div></div>
+        <div class="preview-actions"><button class="primary-btn" id="generateBtn">Generate output</button><button class="secondary-btn" id="copyPreviewBtn">Copy tooltip text</button></div>
+        <div class="export-card"><div class="export-title"><span>Export</span><small>Choose your format</small></div><div class="export-grid"><button data-export="java">Java</button><button data-export="json">JSON</button><button data-export="command">Command</button><button data-export="download">Download</button></div></div>
+        <div class="code-card"><div class="code-head"><span>Generated output</span><button id="copyCodeBtn">Copy</button></div><pre id="output">// Your generated code will appear here.</pre></div>
+      </aside>
     </main>
-
-    <script>
-      document
-        .getElementById("category")
-        .addEventListener("change", function () {
-          const otherFields = document.getElementById("otherFields");
-          if (this.value === "Other") {
-            otherFields.classList.remove("hidden");
-          } else {
-            otherFields.classList.add("hidden");
-          }
-        });
-    </script>
-  </body>
+    <footer>Unofficial community project · Not affiliated with Hypixel or Mojang · Your drafts stay in your browser</footer>
+  </div><div class="toast" id="toast"></div>
+</body>
 </html>
